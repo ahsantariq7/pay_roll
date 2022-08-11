@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Business Banking Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#4DB6AC;">
+<nav class="navbar navbar-light" style="background-color:#FF0033;">
+	<a href="{% url 'account_select' %}" class="navbar-brand" style="background-color:#FFCC33;color:#000000;border-width:10px;border-color:#FFCC33;border-style:solid;border-spacing:30px;border-radius: 5px;">Payroll</a>
+    
+    <a href="{% url 'upload-book3' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Add Business Banking Details</a>
+</nav>
+<br>
+{% block content %}
+
+	
+
+	<table class="table">
+		<thead>
+		  <tr>
+			
+			<th scope="col">Name_On_Account</th>
+			<th scope="col">Bank_Name</th>
+			<th scope="col">Branch</th>
+			<th scope="col">Account_Number</th>
+			<th scope="col">Account_Type</th>
+		  </tr>
+		</thead>
+		{% for book in shelf %}
+		<tbody>
+		  <tr>
+			
+			<td>{{ book.Name_On_Account}}</td>
+			<td>{{ book.Bank_Name}}</td>
+			<td>{{ book.Branch}}</td>
+			<td>{{ book.Account_Number}}</td>
+			<td>{{ book.Account_Type}}</td>
+			<td><a href="update3/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>edit</a>
+				<a href="delete3/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a></td>
+			
+		  </tr>
+		  {% endfor %}
+		</tbody>
+	  </table>
+    	
+	</div>
+  </div>
+</div>
+	
+</div>
+{% endblock %}
+</body>
+</html>

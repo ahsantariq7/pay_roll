@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Pay Schedule</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#4DB6AC;">
+	<nav class="navbar navbar-light" style="background-color:#FF0033;">
+		<a href="{% url 'account_select' %}" class="navbar-brand" style="background-color:#FFCC33;color:#000000;border-width:10px;border-color:#FFCC33;border-style:solid;border-spacing:30px;border-radius: 5px;">Payroll</a>
+		
+		<a href="{% url 'upload-book2' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Add Pay Schedule Details</a>
+	</nav>
+	<br>
+	{% block content %}
+	
+		
+	
+		<table class="table">
+			<thead>
+			  <tr>
+				
+				<th scope="col">Pay Frequency</th>
+				<th scope="col">Start Date</th>
+				<th scope="col">End Date</th>
+				<th scope="col">Period Number</th>
+				
+			  </tr>
+			  {% for book in shelf %}
+			</thead>
+			
+			<tbody>
+			  <tr>
+				
+				<td>{{ book.pay_frequency}}</td>
+				<td>{{ book.start_date}}</td>
+				<td>{{ book.end_date}}</td>
+				<td>{{ book.period_Number}}</td>
+				
+				<td><a href="update2/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>edit</a>
+					<a href="delete2/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a></td>
+				
+			  </tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+			
+		</div>
+	  </div>
+	</div>
+		
+	</div>
+	{% endblock %}
+	</body>
+	</html>

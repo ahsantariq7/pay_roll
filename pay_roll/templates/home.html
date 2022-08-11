@@ -1,0 +1,39 @@
+
+  <!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#4DB6AC;">
+
+    
+    <a class="navbar-link btn-lg" href="{% url 'home' %}" style="background-color:#FFCC33;color:#000000;">Payroll</a>
+
+</nav>
+<br>
+
+
+
+<h1>Hello, {{ user.first_name|default:'Guest' }}</h1>
+
+<p> Welcome to the Our site</p>
+<div>
+  {% if user.is_authenticated %}
+ <a href="{% url 'account_type' %}">Select_Account_Type</a> <hr>
+      <a href="{% url 'logout' %}">Logout</a>
+
+  {% else %}
+      <a href="{% url 'create_account' %}">Sign Up</a> <hr>
+      <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+</div>
+
+
+
+
+</body>
+</html>
+  

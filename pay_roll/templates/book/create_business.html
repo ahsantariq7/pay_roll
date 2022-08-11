@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Add Business Details </title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#4DB6AC;">
+	<nav class="navbar navbar-light" style="background-color:#FF0033;">
+		<a href="{% url 'index' %}" class="navbar-brand" style="background-color:#FFCC33;color:#000000;border-width:10px;border-color:#FFCC33;border-style:solid;border-spacing:30px;border-radius: 5px;">Payroll</a>
+		
+		<a href="{% url 'upload-book' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Add Business Details</a>
+	</nav>
+	<br>
+	{% block content %}
+	
+		
+	
+		<table class="table table-bordered">
+			<h1 class="text-center">Step 1:</h1>
+			<thead>
+			  <tr>
+				
+				<th scope="col">Business Name</th>
+				<th scope="col">Street1</th>
+				<th scope="col">Street2</th>
+				<th scope="col">city</th>
+				<th scope="col">Postal Code</th>
+				<th scope="col">Parish</th>
+				<th scope="col">Country</th>
+				<th scope="col">TRN</th>
+				<th scope="col">NISN</th>
+				<th scope="col">Business_Start_Date</th>
+				
+				
+			  </tr>
+			  {% for book in shelf %}
+			</thead>
+			
+			<tbody>
+			  <tr>
+				
+				<td>{{ book.business_name}}</td>
+				<td>{{ book.street1}}</td>
+				<td>{{ book.street2}}</td>
+				<td>{{ book.city}}</td>
+				<td>{{ book.postal_code}}</td>
+				<td>{{ book.parish}}</td>
+				<td>{{ book.country}}</td>
+				<td>{{ book.Tax_Registration_No}}</td>
+				<td>{{ book.National_Insurance_Scheme_Number}}</td>
+				<td>{{ book.Business_Start_Date}}</td>
+				
+				<td><a href="update/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>edit</a>
+					<a href="delete/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a></td>
+				
+			  </tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+			
+		  <table class="table table-bordered">
+			<h1 class="text-center">Step 2:</h1>
+			<thead>
+			  <tr>
+				
+				<th scope="col">Pay_Frequency</th>
+				<th scope="col">Data Range</th>
+				<th scope="col">Period_Number</th>
+				
+				
+				
+			  </tr>
+			  {% for book in shelf %}
+			</thead>
+			
+			<tbody>
+			  <tr>
+				
+				<td>{{ book.pay}}</td>
+				<td>{{ book.Date1}}-{{ book.Date2}}</td>
+				<td>{{ book.Period}}</td>
+				
+				
+				<td><a href="update/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>edit</a>
+					<a href="delete/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a></td>
+				
+			  </tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+			
+
+		  <table class="table table-bordered">
+			<h1 class="text-center">Step 3:</h1>
+			<thead>
+			  <tr>
+				
+				<th scope="col">Name On Account</th>
+				<th scope="col">Bank Name</th>
+				<th scope="col">Branch</th>
+				<th scope="col">Account Number</th>
+				<th scope="col">Account Type</th>
+				
+				
+				
+			  </tr>
+			  {% for book in shelf %}
+			</thead>
+			
+			<tbody>
+			  <tr>
+				
+				<td>{{ book.Name_On_Account}}</td>
+				<td>{{ book.Bank_Name}}</td>
+				<td>{{ book.Branch}}</td>
+				<td>{{ book.Account_Number}}</td>
+				<td>{{ book.Account_Type}}</td>
+				
+				
+				<td><a href="update/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>edit</a>
+					<a href="delete/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a></td>
+				
+			  </tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+
+
+		</div>
+	  </div>
+	</div>
+		
+	</div>
+	{% endblock %}
+	</body>
+	</html>
